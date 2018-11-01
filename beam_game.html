@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="beam_game.css">
+  <title>小学生の頃のアレ</title>
+</head>
+<body>
+  <h1>例のあのゲーム</h1>
+  <div class="action">
+  <form name="form1" action="beam_game.html">
+    <input id="action_save" name="RadioGroup1" class="action_input" type="radio">
+      <label for="action_save">溜める</label><br/>
+    <input id="action_barrier" name="RadioGroup1" class="action_input" type="radio">
+      <label for="action_barrier">バリア</label><br />
+    <input id="action_beam" name="RadioGroup1" class="action_input" type="radio">
+      <label for="action_beam">ビーム</label><br />
+    <input type="button" value="決定" onclick="myGame()">
+  </form>
+  </div>
+<div id="output"></div>
+<div id="your_action"></div>
+<div id="enemy_action"></div>
+<br>
+<div id="judge">
+Game Start
+</div>
+<br>
+<div id="your_gauge">
+自分のゲージは 0pt
+</div>
+<div id="enemy_gauge">
+相手のゲージは 0pt
+</div>
+<form name="reset" action="beam_game.html">
+  <input type="button" value="はじめから" onclick="resetGame()">
+</form>
+<script type="text/javascript" src="beam_game.js"></script>
+</body>
+</html>
