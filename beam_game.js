@@ -1,6 +1,7 @@
 var your_pt = 0;
 var enemy_pt = 0;
 var judge = "〜続行〜";
+var game_number = 1;
 action_save.checked = true ;
 var game_end = document.getElementById("select");
 game_end.disabled = false;
@@ -8,10 +9,14 @@ function resetGame() {
   your_pt = 0;
   enemy_pt = 0;
   judge = "〜続行〜";
+  if(game_end.disabled == true){
+    game_number++
+  }
   game_end.disabled = false;
   document.getElementById("your_action").innerHTML = "";
   document.getElementById("enemy_action").innerHTML = "";
   document.getElementById("judge").innerHTML = "Game Start";
+  document.getElementById("game_number").innerHTML = "第"+game_number+"試合";
   document.getElementById("your_gauge").innerHTML = "自分のゲージは "+your_pt+"pt";
   document.getElementById("enemy_gauge").innerHTML = "相手のゲージは "+enemy_pt+"pt";
 }
