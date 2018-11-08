@@ -5,7 +5,7 @@ var game_number = 1;
 var your_win = 0;
 var your_lose = game_number -1 -your_win;
 action_save.checked = true ;
-var game_end = document.getElementById("select");
+var game_end = document.getElementByClassName("select");
 game_end.disabled = false;
 function resetGame() {
   your_pt = 0;
