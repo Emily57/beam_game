@@ -1,3 +1,64 @@
+.flex{
+  display: flex;
+}
+
+.game_h1title {
+	position: relative;
+	padding: 0 17%;
+	text-align: center;
+	color:#F4511E;
+	margin-left: auto;
+	margin-right: 0%;
+	font-size: 300%;
+}
+.game_h1title:before, .game_h1title:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	display: inline-block;
+	width: 15%;
+	height: 1px;
+	background-color: #F4511E;
+}
+.game_h1title:before {
+	left: 5%;
+	background: linear-gradient(-45deg, transparent, #F4511E 10%, #F4511E 30%, transparent);
+}
+.game_h1title:after {
+	right: 5%;
+	background: linear-gradient(-45deg, transparent, #F4511E 70%, #F4511E 90%, transparent);
+}
+
+.enemy {
+    position: relative;
+    padding: 0.5em 1em;
+    border: solid 3px #000000;
+}
+.enemy_title{
+position: relative;
+padding: 0.1em 0.5em;
+background: -moz-linear-gradient(to right, rgb(255, 255, 255), transparent);
+background: -webkit-linear-gradient(to right, rgb(10, 10, 10), transparent);
+background: linear-gradient(to right, rgb(10, 10, 10), transparent);
+color: #ffffff;
+flex: 3;
+}
+.enemy_gauge{
+    padding: 0 9px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 17px;
+    background: #ffffff;
+    /*border-right: solid 2px #000000;*/
+    color: #000000;
+    font-weight: bold;
+    flex: 1;
+    border-right: solid 15px transparent;
+}
+.enemy p {
+    margin: 0;
+    padding: 0;
+}
 .action_input{
   display: none;
 }

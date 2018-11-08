@@ -6,7 +6,15 @@
   <title>小学生の頃のアレ</title>
 </head>
 <body>
-  <h1>例のあのゲーム</h1>
+  <h1 class="game_h1title">Unknown Game</h1>
+  <div class="game_screen">
+  <div class="flex">
+    <div class="enemy_title">Enemy</div>
+    <div class="enemy_gauge">■■■□□</div>
+  </div>
+  <div class="enemy">
+    <p>ここに文章</p>
+  </div>
   <div class="action">
   <form name="form1" action="beam_game.html">
     <input id="action_save" name="RadioGroup1" class="action_input" type="radio">
@@ -35,6 +43,7 @@ Game Start
 <form name="reset" action="beam_game.html">
   <input type="button" value="はじめから" onclick="resetGame()">
 </form>
+</div>
 <script type="text/javascript" src="beam_game.js"></script>
 </body>
 </html>
