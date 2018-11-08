@@ -2,6 +2,8 @@ var your_pt = 0;
 var enemy_pt = 0;
 var judge = "〜続行〜";
 var game_number = 1;
+var your_win = 0;
+var your_lose = game_number -1 -your_win;
 action_save.checked = true ;
 var game_end = document.getElementById("select");
 game_end.disabled = false;
@@ -10,7 +12,7 @@ function resetGame() {
   enemy_pt = 0;
   judge = "〜続行〜";
   if(game_end.disabled == true){
-    game_number++
+    game_number++;
   }
   game_end.disabled = false;
   document.getElementById("your_action").innerHTML = "";
@@ -67,21 +69,26 @@ function myGame() {
     enemy_pt = enemy_pt -4;
   } else if (your_action == "ビーム" && your_pt >=4) {
     judge = "!!HIGH BEAM!!　　YOU WIN!!";
-  game_end.disabled = true;
+    your_win++;
+    game_end.disabled = true;
   } else if (enemy_action == "ビーム" && enemy_pt >=4) {
     judge = "!!HIGH BEAM!!　　YOU LOSE...";
-  game_end.disabled = true;
+    your_lose++;
+    game_end.disabled = true;
   } else if (your_action == "ビーム" && enemy_action == "溜める") {
     judge = "YOU WIN!";
-  game_end.disabled = true;
+    your_win++;
+    game_end.disabled = true;
   } else if (your_action == "溜める" && enemy_action == "ビーム") {
     judge = "YOU LOSE...";
-  game_end.disabled = true;
+    your_lose++;
+    game_end.disabled = true;
   }
 document.getElementById("your_action").innerHTML = "自分の選択は "+your_action;
 document.getElementById("enemy_action").innerHTML = "相手の選択は "+enemy_action;
 document.getElementById("judge").innerHTML = judge;
 document.getElementById("your_gauge").innerHTML = "自分のゲージは "+your_pt+"pt";
 document.getElementById("enemy_gauge").innerHTML = "相手のゲージは "+enemy_pt+"pt";
+document.getElementById("your_KOs").innerHTML = " - "+your_win+"勝"+your_lose+"敗";
     }
 }
