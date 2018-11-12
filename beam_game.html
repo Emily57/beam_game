@@ -16,10 +16,10 @@
     <p>ここに文章</p>
   </div>
   <div class="action">
-  <form name="form1" action="beam_game.html">
-    <input id="action_save" type="button" class="select" value="溜める" onclick="myGame()" disabled>
-    <input id="action_barrier" type="button"  class="select" value="バリア" onclick="myGame()" disabled>
-    <input id="action_beam" type="button" class="select" value="ビーム" onclick="myGame()" disabled>
+  <form name="form1" class="select" action="beam_game.html" disabled>
+    <input id="action_save" type="button" class="select" value="溜める" onclick="myGame('save')" disabled>
+    <input id="action_barrier" type="button"  class="select" value="バリア" onclick="myGame('barrier')" disabled>
+    <input id="action_beam" type="button" class="select" value="ビーム" onclick="myGame('beam')" disabled>
   </form>
   </div>
 <div id="output"></div>
