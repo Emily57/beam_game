@@ -29,6 +29,11 @@
 	background: linear-gradient(-45deg, transparent, #F4511E 70%, #F4511E 90%, transparent);
 }
 
+.game_screen{
+  min-width: 500px;
+  max-width: 600px;
+  margin: auto;
+}
 .enemy {
     position: relative;
     padding: 0.5em 1em;
