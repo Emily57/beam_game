@@ -9,7 +9,7 @@ var disabled_barrier = document.getElementById("action_barrier");
 var disabled_beam = document.getElementById("action_beam");
 disabled_save.disabled = false;
 disabled_barrier.disabled = false;
-disabled_beam.disabled = false;
+disabled_beam.disabled = true;
 function resetGame() {
   your_pt = 0;
   enemy_pt = 0;
@@ -19,7 +19,7 @@ function resetGame() {
   }
   disabled_save.disabled = false;
   disabled_barrier.disabled = false;
-  disabled_beam.disabled = false;
+  disabled_beam.disabled = true;
   document.getElementById("your_action").innerHTML = "";
   document.getElementById("enemy_action").innerHTML = "";
   document.getElementById("judge").innerHTML = "Game Start";
@@ -31,44 +31,45 @@ function myGame(your_select) {
   action_save = document.form1.action_save.value;
   action_barrier = document.form1.action_barrier.value;
   action_beam = document.form1.action_beam.value;
-  if(your_pt===0 && action_beam === true){
-    window.alert("ゲージが0ptなのでビームは選択できません！");
+  if(your_pt===0 && enemy_pt===0){
+    enemyNumber = 0;
+  } else if (enemy_pt>=5) {
+    enemyNumber = 2;
+  } else if(your_pt===0 && enemy_pt ==4){
+    enemyNumber = 0;
+  } else if (your_pt===0) {
+    enemyNumber = Math.floor(Math.random()*3);
+    while(enemyNumber == 1){
+      enemyNumber = Math.floor(Math.random()*3);
+    }
+  } else if (enemy_pt>=1) {
+    enemyNumber = Math.floor(Math.random()*3);
   } else {
-    if(your_pt===0 && enemy_pt===0){
-      enemyNumber = 0;
-    } else if (enemy_pt>=5) {
-      enemyNumber = 2;
-    } else if(your_pt===0 && enemy_pt ==4){
-      enemyNumber = 0;
-    } else if (your_pt===0) {
-      enemyNumber = Math.floor(Math.random()*3);
-      while(enemyNumber == 1){
-        enemyNumber = Math.floor(Math.random()*3);
-      }
-    } else if (enemy_pt>=1) {
-      enemyNumber = Math.floor(Math.random()*3);
-    } else {
-      enemyNumber = Math.floor(Math.random()*2);
-    }
-
-    if( enemyNumber === 0 ){
-      enemy_action = "溜める";
-      enemy_pt++;
-    } else if( enemyNumber == 1 ){
-      enemy_action = "バリア";
-    } else if( enemyNumber == 2 ){
-      enemy_action = "ビーム";
-      enemy_pt--;
-    }
-    if (your_select === "save") {
-      your_action = "溜める";
-      your_pt++;
-    } else if (your_select === "barrier") {
-      your_action = "バリア";
-    } else if (your_select === "beam") {
-      your_action = "ビーム";
-      your_pt--;
-    }
+    enemyNumber = Math.floor(Math.random()*2);
+  }
+  if( enemyNumber === 0 ){
+    enemy_action = "溜める";
+    enemy_pt++;
+  } else if( enemyNumber == 1 ){
+    enemy_action = "バリア";
+  } else if( enemyNumber == 2 ){
+    enemy_action = "ビーム";
+    enemy_pt--;
+  }
+  if (your_select === "save") {
+    your_action = "溜める";
+    your_pt++;
+  } else if (your_select === "barrier") {
+    your_action = "バリア";
+  } else if (your_select === "beam") {
+    your_action = "ビーム";
+    your_pt--;
+  }
+  if(your_pt>0){
+    disabled_beam.disabled = false;
+  } else {
+    disabled_beam.disabled = true;
+  }
   if(your_action == "ビーム" && your_pt >=4 && enemy_action =="ビーム" && enemy_pt>=4){
     your_pt = your_pt -4;
     enemy_pt = enemy_pt -4;
@@ -103,5 +104,4 @@ document.getElementById("judge").innerHTML = judge;
 document.getElementById("your_gauge").innerHTML = "自分のゲージは "+your_pt+"pt";
 document.getElementById("enemy_gauge").innerHTML = "相手のゲージは "+enemy_pt+"pt";
 document.getElementById("your_KOs").innerHTML = " - "+your_win+"勝"+your_lose+"敗";
-    }
 }
