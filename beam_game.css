@@ -119,6 +119,7 @@ li {
     position: relative;
     padding: 0.5em 1em;
     border: solid 3px #000000;
+    min-height: 100px;
 }
 .enemy_title{
 position: relative;
@@ -135,6 +136,7 @@ flex: 3;
     line-height: 25px;
     font-size: 17px;
     background: #ffffff;
+    text-align: right;
     /*border-right: solid 2px #000000;*/
     color: #000000;
     font-weight: bold;
@@ -145,6 +147,40 @@ flex: 3;
     margin: 0;
     padding: 0;
 }
+
+.you {
+    position: relative;
+    padding: 0.5em 1em;
+    border: solid 3px #000000;
+        min-height: 100px;
+}
+.you_title{
+position: relative;
+padding: 0.1em 0.5em;
+background: -moz-linear-gradient(to right, rgb(255, 255, 255), transparent);
+background: -webkit-linear-gradient(to right, rgb(10, 10, 10), transparent);
+background: linear-gradient(to right, rgb(10, 10, 10), transparent);
+color: #ffffff;
+flex: 3;
+}
+.you_gauge{
+    padding: 0 9px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 17px;
+    background: #ffffff;
+    /*border-right: solid 2px #000000;*/
+    color: #000000;
+    font-weight: bold;
+    flex: 1;
+        text-align: right;
+    border-right: solid 15px transparent;
+}
+.you p {
+    margin: 0;
+    padding: 0;
+}
+
 .action_input{
   display: none;
 }
