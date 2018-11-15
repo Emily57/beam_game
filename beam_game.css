@@ -143,10 +143,6 @@ flex: 3;
     flex: 1;
     border-right: solid 15px transparent;
 }
-.enemy p {
-    margin: 0;
-    padding: 0;
-}
 
 .you {
     position: relative;
@@ -176,11 +172,6 @@ flex: 3;
         text-align: right;
     border-right: solid 15px transparent;
 }
-.you p {
-    margin: 0;
-    padding: 0;
-}
-
 .action_input{
   display: none;
 }

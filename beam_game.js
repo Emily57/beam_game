@@ -116,8 +116,8 @@ for(i=0;i<your_pt;i++){
   your_gauge_text += "■"
 }
 
-document.getElementById("your_action").innerHTML = "自分の選択は "+your_action;
-document.getElementById("enemy_action").innerHTML = "相手の選択は "+enemy_action;
+document.getElementById("your_action").innerHTML = your_action;
+document.getElementById("enemy_action").innerHTML = enemy_action;
 document.getElementById("judge").innerHTML = judge;
 document.getElementById("you_gauge").innerHTML = your_gauge_text;
 document.getElementById("enemy_gauge").innerHTML = enemy_gauge_text;
