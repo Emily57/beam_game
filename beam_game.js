@@ -24,8 +24,8 @@ function resetGame() {
   document.getElementById("enemy_action").innerHTML = "";
   document.getElementById("judge").innerHTML = "Game Start";
   document.getElementById("game_number").innerHTML = "第"+game_number+"試合";
-  document.getElementById("your_gauge").innerHTML = "自分のゲージは "+your_pt+"pt";
-  document.getElementById("enemy_gauge").innerHTML = "相手のゲージは "+enemy_pt+"pt";
+  document.getElementById("you_gauge").innerHTML = "□□□□□";
+  document.getElementById("enemy_gauge").innerHTML = "□□□□□";
 }
 function myGame(your_select) {
   action_save = document.form1.action_save.value;
@@ -76,12 +76,14 @@ function myGame(your_select) {
   } else if (your_action == "ビーム" && your_pt >=4) {
     judge = "!!HIGH BEAM!!　　YOU WIN!!";
     your_win++;
+    your_pt = your_pt -4;
     disabled_save.disabled = true;
     disabled_barrier.disabled = true;
     disabled_beam.disabled = true;
   } else if (enemy_action == "ビーム" && enemy_pt >=4) {
     judge = "!!HIGH BEAM!!　　YOU LOSE...";
     your_lose++;
+    enemy_pt = enemy_pt -4;
     disabled_save.disabled = true;
     disabled_barrier.disabled = true;
     disabled_beam.disabled = true;
@@ -98,10 +100,26 @@ function myGame(your_select) {
     disabled_barrier.disabled = true;
     disabled_beam.disabled = true;
   }
+var enemy_gauge_text = ""
+for(i=5;i>enemy_pt;i--){
+  enemy_gauge_text += "□"
+}
+for(i=0;i<enemy_pt;i++){
+  enemy_gauge_text += "■"
+}
+
+var your_gauge_text = ""
+for(i=5;i>your_pt;i--){
+  your_gauge_text += "□"
+}
+for(i=0;i<your_pt;i++){
+  your_gauge_text += "■"
+}
+
 document.getElementById("your_action").innerHTML = "自分の選択は "+your_action;
 document.getElementById("enemy_action").innerHTML = "相手の選択は "+enemy_action;
 document.getElementById("judge").innerHTML = judge;
-document.getElementById("your_gauge").innerHTML = "自分のゲージは "+your_pt+"pt";
-document.getElementById("enemy_gauge").innerHTML = "相手のゲージは "+enemy_pt+"pt";
+document.getElementById("you_gauge").innerHTML = your_gauge_text;
+document.getElementById("enemy_gauge").innerHTML = enemy_gauge_text;
 document.getElementById("your_KOs").innerHTML = " - "+your_win+"勝"+your_lose+"敗";
 }

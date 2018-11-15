@@ -130,7 +130,7 @@ background: linear-gradient(to right, rgb(10, 10, 10), transparent);
 color: #ffffff;
 flex: 3;
 }
-.enemy_gauge{
+#enemy_gauge{
     padding: 0 9px;
     height: 25px;
     line-height: 25px;
@@ -163,7 +163,7 @@ background: linear-gradient(to right, rgb(10, 10, 10), transparent);
 color: #ffffff;
 flex: 3;
 }
-.you_gauge{
+#you_gauge{
     padding: 0 9px;
     height: 25px;
     line-height: 25px;
