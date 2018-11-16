@@ -119,7 +119,10 @@ li {
     position: relative;
     padding: 0.5em 1em;
     border: solid 3px #000000;
-    min-height: 100px;
+    min-height: 120px;
+    padding: 5px;
+    font-size: 80px;
+    text-align: center;
 }
 .enemy_title{
 position: relative;
@@ -144,11 +147,24 @@ flex: 3;
     border-right: solid 15px transparent;
 }
 
+.GM{
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
+
+.GM #judge{
+  font-size: 40px;
+}
+
 .you {
     position: relative;
     padding: 0.5em 1em;
     border: solid 3px #000000;
-        min-height: 100px;
+    min-height: 120px;
+    padding: 5px;
+    font-size: 80px;
+    text-align: center;
 }
 .you_title{
 position: relative;

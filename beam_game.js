@@ -1,6 +1,6 @@
 var your_pt = 0;
 var enemy_pt = 0;
-var judge = "〜続行〜";
+var judge = "";
 var game_number = 1;
 var your_win = 0;
 var your_lose = game_number -1 -your_win;
@@ -13,7 +13,7 @@ disabled_beam.disabled = true;
 function resetGame() {
   your_pt = 0;
   enemy_pt = 0;
-  judge = "〜続行〜";
+  judge = "";
   if(disabled_save.disabled == true){
     game_number++;
   }
@@ -22,12 +22,14 @@ function resetGame() {
   disabled_beam.disabled = true;
   document.getElementById("your_action").innerHTML = "";
   document.getElementById("enemy_action").innerHTML = "";
-  document.getElementById("judge").innerHTML = "Game Start";
+  document.getElementById("game_continuation").innerHTML = "Game Start";
+  document.getElementById("judge").innerHTML = "";
   document.getElementById("game_number").innerHTML = "第"+game_number+"試合";
   document.getElementById("you_gauge").innerHTML = "□□□□□";
   document.getElementById("enemy_gauge").innerHTML = "□□□□□";
 }
 function myGame(your_select) {
+  document.getElementById("game_continuation").innerHTML = "Continuation";
   action_save = document.form1.action_save.value;
   action_barrier = document.form1.action_barrier.value;
   action_beam = document.form1.action_beam.value;
@@ -74,28 +76,32 @@ function myGame(your_select) {
     your_pt = your_pt -4;
     enemy_pt = enemy_pt -4;
   } else if (your_action == "ビーム" && your_pt >=4) {
-    judge = "!!HIGH BEAM!!　　YOU WIN!!";
+    judge = "!!HIGH BEAM!!　　YOU WIN!!".fontcolor("red").big().bold();
     your_win++;
     your_pt = your_pt -4;
+    document.getElementById("game_continuation").innerHTML = "";
     disabled_save.disabled = true;
     disabled_barrier.disabled = true;
     disabled_beam.disabled = true;
   } else if (enemy_action == "ビーム" && enemy_pt >=4) {
-    judge = "!!HIGH BEAM!!　　YOU LOSE...";
+    judge = "!!HIGH BEAM!!　　YOU LOSE...".fontcolor("blue").big().bold();
     your_lose++;
     enemy_pt = enemy_pt -4;
+    document.getElementById("game_continuation").innerHTML = "";
     disabled_save.disabled = true;
     disabled_barrier.disabled = true;
     disabled_beam.disabled = true;
   } else if (your_action == "ビーム" && enemy_action == "溜める") {
-    judge = "YOU WIN!";
+    judge = "YOU WIN!".fontcolor("red").big().bold();
     your_win++;
+    document.getElementById("game_continuation").innerHTML = "";
     disabled_save.disabled = true;
     disabled_barrier.disabled = true;
     disabled_beam.disabled = true;
   } else if (your_action == "溜める" && enemy_action == "ビーム") {
-    judge = "YOU LOSE...";
+    judge = "YOU LOSE...".fontcolor("blue").big().bold();
     your_lose++;
+    document.getElementById("game_continuation").innerHTML = "";
     disabled_save.disabled = true;
     disabled_barrier.disabled = true;
     disabled_beam.disabled = true;
