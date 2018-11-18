@@ -221,3 +221,11 @@ flex: 3;
   background: #009a9a;
   border-radius: 50%;
 }
+
+#Action_history{
+  border-radius: 8px;
+  padding: 5px;
+  border: double 3px #808080;
+  color: #7cfc00;
+	background-color: #111111;
+}
