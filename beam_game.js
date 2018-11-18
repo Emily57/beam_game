@@ -3,7 +3,8 @@ var enemy_pt = 0;
 var judge = "";
 var game_number = 1;
 var your_win = 0;
-var your_lose = game_number -1 -your_win;
+var your_lose = 0;
+var game_turn = 0;
 var disabled_save = document.getElementById("action_save");
 var disabled_barrier = document.getElementById("action_barrier");
 var disabled_beam = document.getElementById("action_beam");
@@ -13,6 +14,7 @@ disabled_beam.disabled = true;
 function resetGame() {
   your_pt = 0;
   enemy_pt = 0;
+  game_turn = 0;
   judge = "";
   if(disabled_save.disabled == true){
     game_number++;
@@ -20,6 +22,7 @@ function resetGame() {
   disabled_save.disabled = false;
   disabled_barrier.disabled = false;
   disabled_beam.disabled = true;
+  document.getElementById("action_history").innerHTML = game_turn;
   document.getElementById("your_action").innerHTML = "";
   document.getElementById("enemy_action").innerHTML = "";
   document.getElementById("game_continuation").innerHTML = "Game Start";
@@ -72,6 +75,7 @@ function myGame(your_select) {
   } else {
     disabled_beam.disabled = true;
   }
+  game_turn++;
   if(your_action == "ビーム" && your_pt >=4 && enemy_action =="ビーム" && enemy_pt>=4){
     your_pt = your_pt -4;
     enemy_pt = enemy_pt -4;
@@ -121,7 +125,7 @@ for(i=5;i>your_pt;i--){
 for(i=0;i<your_pt;i++){
   your_gauge_text += "■"
 }
-
+document.getElementById("action_history").innerHTML = game_turn;
 document.getElementById("your_action").innerHTML = your_action;
 document.getElementById("enemy_action").innerHTML = enemy_action;
 document.getElementById("judge").innerHTML = judge;
