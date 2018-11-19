@@ -5,7 +5,10 @@ var game_number = 1;
 var your_win = 0;
 var your_lose = 0;
 var game_turn = 0;
+var enemy_action_icon = "";
+var your_action_icon = "";
 var history_text = "";
+var judge_history_text = "";
 var disabled_charge = document.getElementById("action_charge");
 var disabled_barrier = document.getElementById("action_barrier");
 var disabled_beam = document.getElementById("action_beam");
@@ -17,6 +20,7 @@ function resetGame() {
   enemy_pt = 0;
   game_turn = 0;
   judge = "";
+  judge_history_text = "";
   if(disabled_charge.disabled == true){
     game_number++;
   }
@@ -55,20 +59,26 @@ function myGame(your_select) {
   if( enemyNumber === 0 ){
     enemy_action = "Charge";
     enemy_pt++;
+    enemy_action_icon = '<img src="./img/Charge_icon.png" width="100px" height="100px"/>'
   } else if( enemyNumber == 1 ){
     enemy_action = "Barrier";
+    enemy_action_icon = '<img src="./img/Barrier_icon.png" width="100px" height="100px"/>'
   } else if( enemyNumber == 2 ){
     enemy_action = "Beam";
     enemy_pt--;
+    enemy_action_icon = '<img id ="Beam_icon" src="./img/Beam_icon.png" width="100px" height="100px" scale(1, -1)"/>'
   }
   if (your_select === "charge") {
     your_action = "Charge";
     your_pt++;
+    your_action_icon = '<img src="./img/Charge_icon.png" width="100px" height="100px"/>'
   } else if (your_select === "barrier") {
     your_action = "Barrier";
+    your_action_icon = '<img src="./img/Barrier_icon.png" width="100px" height="100px"/>'
   } else if (your_select === "beam") {
     your_action = "Beam";
     your_pt--;
+    your_action_icon = '<img src="./img/Beam_icon.png" width="100px" height="100px"/>'
   }
   if(your_pt>0){
     disabled_beam.disabled = false;
@@ -82,6 +92,7 @@ function myGame(your_select) {
   } else if (your_action == "Beam" && your_pt >=4) {
     judge = "!!HIGH BEAM!!　　YOU WIN!!".fontcolor("red").big().bold();
     your_win++;
+    judge_history_text = "ーーYOU WIN!";
     your_pt = your_pt -4;
     document.getElementById("game_continuation").innerHTML = "";
     disabled_charge.disabled = true;
@@ -90,6 +101,7 @@ function myGame(your_select) {
   } else if (enemy_action == "Beam" && enemy_pt >=4) {
     judge = "!!HIGH BEAM!!　　YOU LOSE...".fontcolor("blue").big().bold();
     your_lose++;
+    judge_history_text = "ーーYOU LOSE..."
     enemy_pt = enemy_pt -4;
     document.getElementById("game_continuation").innerHTML = "";
     disabled_charge.disabled = true;
@@ -98,6 +110,7 @@ function myGame(your_select) {
   } else if (your_action == "Beam" && enemy_action == "Charge") {
     judge = "YOU WIN!".fontcolor("red").big().bold();
     your_win++;
+    judge_history_text = "ーーYOU WIN!"
     document.getElementById("game_continuation").innerHTML = "";
     disabled_charge.disabled = true;
     disabled_barrier.disabled = true;
@@ -105,6 +118,7 @@ function myGame(your_select) {
   } else if (your_action == "Charge" && enemy_action == "Beam") {
     judge = "YOU LOSE...".fontcolor("blue").big().bold();
     your_lose++;
+    judge_history_text = "ーーYOU LOSE..."
     document.getElementById("game_continuation").innerHTML = "";
     disabled_charge.disabled = true;
     disabled_barrier.disabled = true;
@@ -125,12 +139,14 @@ for(i=5;i>your_pt;i--){
 for(i=0;i<your_pt;i++){
   your_gauge_text += "■"
 }
-history_text = game_number+'-'+game_turn+') Enemy:'+enemy_action+'　You:'+your_action+'<br>';
-document.getElementById("action_history").innerHTML += history_text;
-document.getElementById("your_action").innerHTML = your_action;
-document.getElementById("enemy_action").innerHTML = enemy_action;
+history_text = game_number+'-'+game_turn+') Enemy:'+enemy_action+'　You:'+your_action+'　'+judge_history_text+'<br>'+history_text;
+document.getElementById("action_history").innerHTML = history_text;
+document.getElementById("your_action").innerHTML = your_action_icon;
+document.getElementById("enemy_action").innerHTML = enemy_action_icon;
 document.getElementById("judge").innerHTML = judge;
 document.getElementById("you_gauge").innerHTML = your_gauge_text;
 document.getElementById("enemy_gauge").innerHTML = enemy_gauge_text;
 document.getElementById("your_KOs").innerHTML = " - "+your_win+"勝"+your_lose+"敗";
 }
+
+//https://icon-icons.com/ja/

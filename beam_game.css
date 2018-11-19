@@ -115,14 +115,14 @@ li {
   box-shadow: none;
 }
 
-.enemy {
-    position: relative;
-    padding: 0.5em 1em;
+#enemy_action {
     border: solid 3px #000000;
     min-height: 120px;
-    padding: 5px;
-    font-size: 80px;
+    padding-top: 15px;
     text-align: center;
+}
+#enemy_action #Beam_icon {
+    transform: scale(1, -1);
 }
 .enemy_title{
 position: relative;
@@ -157,14 +157,11 @@ flex: 3;
   font-size: 40px;
 }
 
-.you {
-    position: relative;
-    padding: 0.5em 1em;
-    border: solid 3px #000000;
-    min-height: 120px;
-    padding: 5px;
-    font-size: 80px;
-    text-align: center;
+#your_action {
+  border: solid 3px #000000;
+  min-height: 120px;
+  padding-top: 15px;
+  text-align: center;
 }
 .you_title{
 position: relative;
