@@ -3,7 +3,6 @@
 }
 .game_h1title {
 	position: relative;
-	padding: 0 17%;
 	text-align: center;
 	color:#F4511E;
 	margin-left: auto;
@@ -51,11 +50,11 @@ li {
   flex: 1;
 }
 .select_btn {
-  width:100px;
-  height:100px;
+  width:50px;
+  height:50px;
   outline : none;
   position: relative;
-  border-radius: 50%;
+  border-radius: 30%;
   color: #fff;
   line-height: 50px;
   -webkit-box-sizing: content-box;
@@ -63,16 +62,17 @@ li {
   box-sizing: content-box;
   -webkit-transition: none;
   transition: none;
-  text-shadow: 0px 1px 0px #f56778;
-  font-size: 20px;
+  text-shadow: 0px 1px 0px #000000;
+  font-size: 15px;
+  margin-top: 10px;
 }
 .select_btn,
 .select_btn:hover {
-  border-bottom: 4px solid #cb5462;
-  background-color: #f56778;
-  background-image: -webkit-linear-gradient(top, #f997b0, #f56778);
-  background-image: linear-gradient(to bottom, #f997b0, #f56778);
-  box-shadow: inset 1px 1px 0 #fbc1d0;
+  border-bottom: 4px solid #808080;
+  background-color: #000000;
+  background-image: -webkit-linear-gradient(top, #d3d3d3, #a9a9a9);
+  background-image: linear-gradient(to bottom, #d3d3d3, #a9a9a9);
+  box-shadow: inset 2px 2px 3px #ffffff;
 }
 .select_btn::before,
 .select_btn::after {
@@ -97,11 +97,11 @@ li {
   box-shadow: 0 1px 1px 0px #bfbfbf;
 }
 .select_btn:hover {
-  background: #f56778;
-  background-image: -webkit-linear-gradient(top, #f56778, #f997b0);
-  background-image: linear-gradient(to bottom, #f56778, #f997b0);
-  color: #913944;
-  text-shadow: 0px 1px 0px #f9a0ad;
+  background: #000000;
+  background-image: -webkit-linear-gradient(top, #a9a9a9, #d3d3d3);
+  background-image: linear-gradient(to bottom, #a9a9a9, #d3d3d3);
+  color: #ffffff;
+  text-shadow: 0px 1px 0px #000000;
 }
 .select_btn:active {
   bottom: -4px;
