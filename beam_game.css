@@ -228,3 +228,48 @@ flex: 3;
   color: #7cfc00;
 	background-color: #111111;
 }
+
+.game_status {
+position: relative;
+padding-left: 25px;
+display: flex;
+margin: 10px 0;
+}
+
+.game_status:before {
+position: absolute;
+content: '';
+bottom: -3px;
+left: 0;
+width: 0;
+height: 0;
+border: none;
+border-left: solid 15px transparent;
+border-bottom: solid 15px #000000;
+}
+
+.game_status:after {
+position: absolute;
+content: '';
+bottom: -3px;
+left: 10px;
+width: 100%;
+border-bottom: solid 3px #000000;
+}
+
+#game_number:first-letter {
+font-size: 2em;
+color: #000000;
+}
+
+#game_number{
+  font-size: 20px;
+  flex 3;
+}
+
+#your_KOs{
+  text-align: right;
+  margin-top: 25px;
+  flex: 1;
+  font-size: 20px;
+}

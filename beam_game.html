@@ -37,17 +37,13 @@
 　  </div>
   </form>
   </div>
-<br>
+<div class="game_status">
+<div id="game_number">1試合目</div><div id="your_KOs"> - 0勝0敗</div>
+</div>
+  <input type="button" value="はじめから" onclick="resetGame()">
 <div id="action_history" style="height:150px;overflow:auto;">
 </div>
-<div id="game_number">
-第1試合
-</div>
-<div id="your_KOs">
- - 0勝0敗
-</div>
 <form name="reset" action="beam_game.html">
-  <input type="button" value="はじめから" onclick="resetGame()">
 </form>
 </div>
 <script type="text/javascript" src="beam_game.js"></script>
