@@ -87,20 +87,28 @@ function myGame(your_select) {
   }
   game_turn++;
   if(your_action == "Beam" && your_pt >=4 && enemy_action =="Beam" && enemy_pt>=4){
+    your_action = "HIGH Beam"
+    enemy_action = "HIGH Beam"
+    your_action_icon = '<img src="./img/Beam_icon.png" width="400px" height="115px"/>'
+    enemy_action_icon = '<img id ="Beam_icon" src="./img/Beam_icon.png" width="400px" height="115px" scale(1, -1)"/>'
     your_pt = your_pt -4;
     enemy_pt = enemy_pt -4;
   } else if (your_action == "Beam" && your_pt >=4) {
-    judge = "!!HIGH BEAM!!　　YOU WIN!!".fontcolor("red").big().bold();
+    judge = "YOU WIN!!".fontcolor("red").big().bold();//!!HIGH BEAM!!　　
     your_win++;
+    your_action = "HIGH Beam"
     judge_history_text = "ーーYOU WIN!";
     your_pt = your_pt -4;
+    your_action_icon = '<img src="./img/Beam_icon.png" width="400px" height="115px"/>'
     document.getElementById("game_continuation").innerHTML = "";
     disabled_charge.disabled = true;
     disabled_barrier.disabled = true;
     disabled_beam.disabled = true;
   } else if (enemy_action == "Beam" && enemy_pt >=4) {
-    judge = "!!HIGH BEAM!!　　YOU LOSE...".fontcolor("blue").big().bold();
+    judge = "YOU LOSE...".fontcolor("blue").big().bold();//!!HIGH BEAM!!　　
     your_lose++;
+    enemy_action = "HIGH Beam"
+    enemy_action_icon = '<img id ="Beam_icon" src="./img/Beam_icon.png" width="400px" height="115px" scale(1, -1)"/>'
     judge_history_text = "ーーYOU LOSE..."
     enemy_pt = enemy_pt -4;
     document.getElementById("game_continuation").innerHTML = "";
@@ -130,6 +138,9 @@ for(i=5;i>enemy_pt;i--){
 }
 for(i=0;i<enemy_pt;i++){
   enemy_gauge_text += "■"
+}
+if(enemy_pt==5){
+  enemy_gauge_text = enemy_gauge_text.fontcolor("red");
 }
 
 var your_gauge_text = ""

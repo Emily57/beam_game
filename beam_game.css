@@ -118,6 +118,7 @@ li {
 #enemy_action {
     border: solid 3px #000000;
     min-height: 120px;
+    max-height: 120px;
     padding-top: 15px;
     text-align: center;
 }
@@ -160,6 +161,7 @@ flex: 3;
 #your_action {
   border: solid 3px #000000;
   min-height: 120px;
+  max-height: 120px;
   padding-top: 15px;
   text-align: center;
 }
