@@ -31,7 +31,7 @@ function resetGame() {
   document.getElementById("enemy_action").innerHTML = "";
   document.getElementById("game_continuation").innerHTML = "Game Start";
   document.getElementById("judge").innerHTML = "";
-  document.getElementById("game_number").innerHTML = game_number+"試合目";
+  document.getElementById("game_number").innerHTML= "<font size='6'>"+game_number+"</font>試合目";
   document.getElementById("you_gauge").innerHTML = "□□□□□";
   document.getElementById("enemy_gauge").innerHTML = "□□□□□";
 }
