@@ -139,9 +139,6 @@ for(i=5;i>enemy_pt;i--){
 for(i=0;i<enemy_pt;i++){
   enemy_gauge_text += "■"
 }
-if(enemy_pt==5){
-  enemy_gauge_text = enemy_gauge_text.fontcolor("red");
-}
 
 var your_gauge_text = ""
 for(i=5;i>your_pt;i--){
