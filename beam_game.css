@@ -4,9 +4,11 @@
 .game_h1title {
 	position: relative;
 	text-align: center;
-	color:#F4511E;
+	color:#000000;
 	margin-left: auto;
 	margin-right: 0%;
+  margin-top: 0;
+  margin-bottom: 10px;
 	font-size: 300%;
 }
 .game_h1title:before, .game_h1title:after {
@@ -16,15 +18,15 @@
 	display: inline-block;
 	width: 15%;
 	height: 1px;
-	background-color: #F4511E;
+	background-color: #000000;
 }
 .game_h1title:before {
 	left: 5%;
-	background: linear-gradient(-45deg, transparent, #F4511E 10%, #F4511E 30%, transparent);
+	background: linear-gradient(-45deg, transparent, #000000 10%, #000000 30%, transparent);
 }
 .game_h1title:after {
 	right: 5%;
-	background: linear-gradient(-45deg, transparent, #F4511E 70%, #F4511E 90%, transparent);
+	background: linear-gradient(-45deg, transparent, #000000 70%, #000000 90%, transparent);
 }
 .game_screen{
   min-width: 500px;
@@ -40,15 +42,12 @@
 li {
   list-style: none;
 }
-.box1_a{
-  flex: 1;
-}
-.box1_b{
-  flex: 1;
-}
+.box1_a,
+.box1_b,
 .box1_c{
   flex: 1;
 }
+
 .select_btn {
   width:50px;
   height:50px;
@@ -74,28 +73,7 @@ li {
   background-image: linear-gradient(to bottom, #d3d3d3, #a9a9a9);
   box-shadow: inset 2px 2px 3px #ffffff;
 }
-.select_btn::before,
-.select_btn::after {
-  bottom: -1px;
-  left: -1px;
-  width: 200px;
-  height: 50px;
-  border: 1px solid #ee8090;
-  border-bottom: 1px solid #b84d5a;
-  border-radius: 4px;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  -webkit-transition: none;
-  transition: none;
-}
-.select_btn::before {
-  height: 48px;
-  bottom: -4px;
-  border-top: 0;
-  border-radius: 0 0 4px 4px;
-  box-shadow: 0 1px 1px 0px #bfbfbf;
-}
+
 .select_btn:hover {
   background: #000000;
   background-image: -webkit-linear-gradient(top, #a9a9a9, #d3d3d3);
@@ -109,10 +87,27 @@ li {
   border: none;
   box-shadow: 1px 1px 0 #fff, inset 0 1px 1px rgba(0, 0, 0, .3);
 }
-.select_btn:active::before,
-.select_btn:active::after {
+
+#restart_area .select_btn,
+#restart_area.select_btn:hover{
+  font-size: 30px;
+  width:150px;
+  height:50px;
+  border-bottom: 4px solid #363636;
+  background-color: #000000;
+  background-image: -webkit-linear-gradient(top, #c0c0c0, #696969);
+  background-image: linear-gradient(to bottom, #c0c0c0, #696969);
+}
+
+#restart_area .select_btn:hover {
+  background-image: -webkit-linear-gradient(top, #696969, #c0c0c0);
+  background-image: linear-gradient(to bottom, #696969, #c0c0c0);
+  color: #ffffff;
+  text-shadow: 0px 1px 0px #000000;
+}
+
+#restart_area .select_btn:active {
   border: none;
-  box-shadow: none;
 }
 
 #enemy_action {
@@ -122,9 +117,11 @@ li {
     padding-top: 15px;
     text-align: center;
 }
+
 #enemy_action #Beam_icon {
     transform: scale(1, -1);
 }
+
 .enemy_title{
 position: relative;
 padding: 0.1em 0.5em;
@@ -187,39 +184,7 @@ flex: 3;
         text-align: right;
     border-right: solid 15px transparent;
 }
-.action_input{
-  display: none;
-}
-.action_input + label{
-  padding-left: 20px;
-  position:relative;
-  margin-right: 20px;
-}
-.action_input + label::before{
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 15px;
-  height: 15px;
-  border: 1px solid #999;
-  border-radius: 50%;
-}
-.action_input:checked + label{
-  color: #009a9a;
-}
-.action_input:checked + label::after{
-  content: "";
-  display: block;
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 11px;
-  height: 11px;
-  background: #009a9a;
-  border-radius: 50%;
-}
+
 
 #action_history{
   border-radius: 8px;
@@ -270,4 +235,9 @@ border-bottom: solid 3px #000000;
   bottom: 5px;
   flex: 1;
   font-size: 20px;
+}
+
+#restart_area{
+  min-height: 70px;
+  text-align: center;
 }

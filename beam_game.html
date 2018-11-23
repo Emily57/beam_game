@@ -18,7 +18,7 @@
   <div class="GM">
     <div id="judge"></div>
     <div id="game_continuation">
-      Game Start
+      <font size="5">Game Start</font>
     </div>
   </div>
     <div id="your_action"></div>
@@ -40,7 +40,9 @@
 <div class="game_status">
 <div id="game_number"><font size='6'>1</font>試合目</div><div id="your_KOs"> - 0勝0敗</div>
 </div>
-  <input type="button" value="Restart" onclick="resetGame()">
+<div id="restart_area">
+  <input type="button" value="Restart" class="select_btn" onclick="resetGame()">
+</div>
 <div id="action_history" style="height:150px;overflow:auto;">
 </div>
 </div>

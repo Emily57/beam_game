@@ -29,14 +29,14 @@ function resetGame() {
   disabled_beam.disabled = true;
   document.getElementById("your_action").innerHTML = "";
   document.getElementById("enemy_action").innerHTML = "";
-  document.getElementById("game_continuation").innerHTML = "Game Start";
+  document.getElementById("game_continuation").innerHTML = "<font size='5'>Game Start</font>";
   document.getElementById("judge").innerHTML = "";
   document.getElementById("game_number").innerHTML= "<font size='6'>"+game_number+"</font>試合目";
   document.getElementById("you_gauge").innerHTML = "□□□□□";
   document.getElementById("enemy_gauge").innerHTML = "□□□□□";
 }
 function myGame(your_select) {
-  document.getElementById("game_continuation").innerHTML = "Continuation";
+  document.getElementById("game_continuation").innerHTML = "<font size='4'>Continuation</font>";
   action_charge = document.form1.action_charge.value;
   action_barrier = document.form1.action_barrier.value;
   action_beam = document.form1.action_beam.value;
