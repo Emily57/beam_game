@@ -1,28 +1,34 @@
 var your_pt = 0;
 var enemy_pt = 0;
 var judge = "";
-var game_number = 0;
-var your_win = 0;
-var your_lose = 0;
 var game_turn = 0;
 var enemy_action_icon = "";
 var your_action_icon = "";
 var judge_history_text = "";
+var game_number = localStorage.getItem('Number');
+var history_text = localStorage.getItem('History');
+var your_win = localStorage.getItem('Wins');
+var your_lose = localStorage.getItem('Loses');
 var disabled_charge = document.getElementById("action_charge");
 var disabled_barrier = document.getElementById("action_barrier");
 var disabled_beam = document.getElementById("action_beam");
 disabled_charge.disabled = false;
 disabled_barrier.disabled = false;
 disabled_beam.disabled = true;
-game_number = localStorage.getItem('Number');
-var history_text = localStorage.getItem('History');
 if(game_number === null){
   game_number = 1;
 }
 if(history_text === null){
   history_text = "";
 }
+if(your_win === null){
+  your_win = 0;
+}
+if(your_lose === null){
+  your_lose = 0;
+}
 document.getElementById("game_number").innerHTML= "<font size='6'>"+game_number+"</font>試合目";
+document.getElementById("your_KOs").innerHTML = " - "+your_win+"勝"+your_lose+"敗";
 document.getElementById("action_history").innerHTML = history_text;
 function resetGame() {
   your_pt = 0;
@@ -30,9 +36,6 @@ function resetGame() {
   game_turn = 0;
   judge = "";
   judge_history_text = "";
-  if(disabled_charge.disabled == true){
-    game_number++;
-  }
   disabled_charge.disabled = false;
   disabled_barrier.disabled = false;
   disabled_beam.disabled = true;
@@ -156,8 +159,6 @@ for(i=0;i<your_pt;i++){
   your_gauge_text += "■"
 }
 history_text = game_number+'-'+game_turn+') Enemy:'+enemy_action+'　You:'+your_action+'　'+judge_history_text+'<br>'+history_text;
-localStorage.setItem("History",history_text);
-localStorage.setItem("Number",game_number);
 document.getElementById("action_history").innerHTML = history_text;
 document.getElementById("your_action").innerHTML = your_action_icon;
 document.getElementById("enemy_action").innerHTML = enemy_action_icon;
@@ -166,6 +167,13 @@ document.getElementById("you_gauge").innerHTML = your_gauge_text;
 document.getElementById("enemy_gauge").innerHTML = enemy_gauge_text;
 document.getElementById("your_KOs").innerHTML = " - "+your_win+"勝"+your_lose+"敗";
 
+if(disabled_charge.disabled == true){
+  game_number++;
+}
+localStorage.setItem("History",history_text);
+localStorage.setItem("Number",game_number);
+localStorage.setItem("Wins",your_win);
+localStorage.setItem("Loses",your_lose);
 }
 
 //https://icon-icons.com/ja/
