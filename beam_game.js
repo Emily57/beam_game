@@ -1,13 +1,12 @@
 var your_pt = 0;
 var enemy_pt = 0;
 var judge = "";
-var game_number = 1;
+var game_number = 0;
 var your_win = 0;
 var your_lose = 0;
 var game_turn = 0;
 var enemy_action_icon = "";
 var your_action_icon = "";
-var history_text = "";
 var judge_history_text = "";
 var disabled_charge = document.getElementById("action_charge");
 var disabled_barrier = document.getElementById("action_barrier");
@@ -15,6 +14,16 @@ var disabled_beam = document.getElementById("action_beam");
 disabled_charge.disabled = false;
 disabled_barrier.disabled = false;
 disabled_beam.disabled = true;
+game_number = localStorage.getItem('Number');
+var history_text = localStorage.getItem('History');
+if(game_number === null){
+  game_number = 1;
+}
+if(history_text === null){
+  history_text = "";
+}
+document.getElementById("game_number").innerHTML= "<font size='6'>"+game_number+"</font>試合目";
+document.getElementById("action_history").innerHTML = history_text;
 function resetGame() {
   your_pt = 0;
   enemy_pt = 0;
@@ -139,7 +148,6 @@ for(i=5;i>enemy_pt;i--){
 for(i=0;i<enemy_pt;i++){
   enemy_gauge_text += "■"
 }
-
 var your_gauge_text = ""
 for(i=5;i>your_pt;i--){
   your_gauge_text += "□"
@@ -148,6 +156,8 @@ for(i=0;i<your_pt;i++){
   your_gauge_text += "■"
 }
 history_text = game_number+'-'+game_turn+') Enemy:'+enemy_action+'　You:'+your_action+'　'+judge_history_text+'<br>'+history_text;
+localStorage.setItem("History",history_text);
+localStorage.setItem("Number",game_number);
 document.getElementById("action_history").innerHTML = history_text;
 document.getElementById("your_action").innerHTML = your_action_icon;
 document.getElementById("enemy_action").innerHTML = enemy_action_icon;
@@ -155,6 +165,7 @@ document.getElementById("judge").innerHTML = judge;
 document.getElementById("you_gauge").innerHTML = your_gauge_text;
 document.getElementById("enemy_gauge").innerHTML = enemy_gauge_text;
 document.getElementById("your_KOs").innerHTML = " - "+your_win+"勝"+your_lose+"敗";
+
 }
 
 //https://icon-icons.com/ja/
