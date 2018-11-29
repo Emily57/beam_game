@@ -88,8 +88,8 @@ li {
   box-shadow: 1px 1px 0 #fff, inset 0 1px 1px rgba(0, 0, 0, .3);
 }
 
-#restart_area .select_btn,
-#restart_area.select_btn:hover{
+#fix_area .select_btn,
+#fix_area.select_btn:hover{
   font-size: 30px;
   width:150px;
   height:50px;
@@ -99,14 +99,14 @@ li {
   background-image: linear-gradient(to bottom, #c0c0c0, #696969);
 }
 
-#restart_area .select_btn:hover {
+#fix_area .select_btn:hover {
   background-image: -webkit-linear-gradient(top, #696969, #c0c0c0);
   background-image: linear-gradient(to bottom, #696969, #c0c0c0);
   color: #ffffff;
   text-shadow: 0px 1px 0px #000000;
 }
 
-#restart_area .select_btn:active {
+#fix_area .select_btn:active {
   border: none;
 }
 
@@ -237,7 +237,27 @@ border-bottom: solid 3px #000000;
   font-size: 20px;
 }
 
-#restart_area{
+#fix_area{
+  padding: 20px;
   min-height: 70px;
   text-align: center;
+}
+
+.reset_btn{
+  width:130px;
+  height:50px;
+    font-size: 20px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #627295;
+    color: #FFF;
+    border-bottom: solid 4px #000000;
+    border-radius: 3px;
+}
+.reset_btn:active {
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    border-bottom: none;
 }

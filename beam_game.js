@@ -176,4 +176,17 @@ localStorage.setItem("Wins",your_win);
 localStorage.setItem("Loses",your_lose);
 }
 
+function resetAll() {
+game_number = 1;
+history_text = "";
+your_win = 0;
+your_lose = 0;
+document.getElementById("game_number").innerHTML= "<font size='6'>"+game_number+"</font>試合目";
+document.getElementById("your_KOs").innerHTML = " - "+your_win+"勝"+your_lose+"敗";
+document.getElementById("action_history").innerHTML = history_text;
+localStorage.setItem("History",history_text);
+localStorage.setItem("Number",game_number);
+localStorage.setItem("Wins",your_win);
+localStorage.setItem("Loses",your_lose);
+}
 //https://icon-icons.com/ja/
