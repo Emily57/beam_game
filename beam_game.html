@@ -17,9 +17,7 @@
     <div id="enemy_action"></div>
   <div class="GM">
     <div id="judge"></div>
-    <div id="game_continuation">
-      <font size="5">Game Start</font>
-    </div>
+    <div id="game_continuation"></div>
   </div>
     <div id="your_action"></div>
   <div class="flex">
@@ -31,18 +29,18 @@
   <div class="btn_box">
   <form name="form1" class="select" action="beam_game.html" disabled>
     <div class="flex">
-    <li class="box1_a"><input id="action_charge" type="button" class="select_btn" value="Charge" onclick="myGame('charge')" disabled></li>
-    <li class="box1_b"><input id="action_barrier" type="button"  class="select_btn" value="Barrier" onclick="myGame('barrier')" disabled></li>
-    <li class="box1_c"><input id="action_beam" type="button" class="select_btn" value="Beam" onclick="myGame('beam')" disabled></li>
+    <li class="box1_a"><input id="action_charge" type="button" class="select_btn" value="Charge" onclick="my_game('charge')" disabled></li>
+    <li class="box1_b"><input id="action_barrier" type="button"  class="select_btn" value="Barrier" onclick="my_game('barrier')" disabled></li>
+    <li class="box1_c"><input id="action_beam" type="button" class="select_btn" value="Beam" onclick="my_game('beam')" disabled></li>
 　  </div>
   </form>
   </div>
 <div class="game_status">
-<div id="game_number"><font size='6'>1</font>試合目</div><div id="your_KOs"> - 0勝0敗</div>
+<div id="game_number"><font size='6'>1</font>試合目</div><div id="your_KOs">0勝0敗</div>
 </div>
-<div id="fix_area"><input type="button" value="Restart" class="select_btn" onclick="resetGame()"></div>
+<div id="fix_area"><input type="button" value="Restart" class="select_btn" onclick="reset_game()"></div>
 <div id="action_history" style="height:150px;overflow:auto;"></div>
-<div id="fix_area"><input type="button" value="！Reset！" class="reset_btn" onclick="resetAll()"></div>
+<div id="fix_area"><input type="button" value="！Reset！" class="reset_btn" onclick="reset_all()"></div>
 </div>
 <script type="text/javascript" src="beam_game.js"></script>
 </body>
