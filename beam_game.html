@@ -1,47 +1,85 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<link rel="stylesheet" href="beam_game.css">
-  <title>小学生の頃のアレ</title>
-</head>
-<body>
-  <h1 class="game_h1title">Unknown Game</h1>
-  <div class="game_screen">
-  <div class="flex">
-    <div class="enemy_title">Enemy</div>
-    <div id="enemy_gauge">
-　　  □□□□□
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="beam_game.css" />
+    <title>小学生の頃のアレ</title>
+  </head>
+  <body>
+    <h1 class="game_h1title">Unknown Game</h1>
+    <div class="game_screen">
+      <div class="flex">
+        <div class="enemy_title">Enemy</div>
+        <div id="enemy_gauge">□□□□□</div>
+      </div>
+      <div id="enemy_action"></div>
+      <div class="GM">
+        <div id="judge"></div>
+        <div id="game_continuation"></div>
+      </div>
+      <div id="your_action"></div>
+      <div class="flex">
+        <div class="you_title">You</div>
+        <div id="you_gauge">□□□□□</div>
+      </div>
+      <div class="btn_box">
+        <form name="form1" class="select" action="beam_game.html" disabled>
+          <div class="flex">
+            <li class="box1_a">
+              <input
+                id="action_charge"
+                type="button"
+                class="select_btn"
+                value="Charge"
+                onclick="my_game('charge')"
+                disabled
+              />
+            </li>
+            <li class="box1_b">
+              <input
+                id="action_barrier"
+                type="button"
+                class="select_btn"
+                value="Barrier"
+                onclick="my_game('barrier')"
+                disabled
+              />
+            </li>
+            <li class="box1_c">
+              <input
+                id="action_beam"
+                type="button"
+                class="select_btn"
+                value="Beam"
+                onclick="my_game('beam')"
+                disabled
+              />
+            </li>
+          </div>
+        </form>
+      </div>
+      <div class="game_status">
+        <div id="game_number"><font size="6">1</font>試合目</div>
+        <div id="your_KOs">0勝0敗</div>
+      </div>
+      <div id="fix_area">
+        <input
+          type="button"
+          value="Restart"
+          class="select_btn"
+          onclick="reset_game()"
+        />
+      </div>
+      <div id="action_history" style="height: 150px; overflow: auto"></div>
+      <div id="fix_area">
+        <input
+          type="button"
+          value="！Reset！"
+          class="reset_btn"
+          onclick="reset_all()"
+        />
+      </div>
     </div>
-  </div>
-    <div id="enemy_action"></div>
-  <div class="GM">
-    <div id="judge"></div>
-    <div id="game_continuation"></div>
-  </div>
-    <div id="your_action"></div>
-  <div class="flex">
-    <div class="you_title">You</div>
-    <div id="you_gauge">
-    □□□□□
-    </div>
-  </div>
-  <div class="btn_box">
-  <form name="form1" class="select" action="beam_game.html" disabled>
-    <div class="flex">
-    <li class="box1_a"><input id="action_charge" type="button" class="select_btn" value="Charge" onclick="my_game('charge')" disabled></li>
-    <li class="box1_b"><input id="action_barrier" type="button"  class="select_btn" value="Barrier" onclick="my_game('barrier')" disabled></li>
-    <li class="box1_c"><input id="action_beam" type="button" class="select_btn" value="Beam" onclick="my_game('beam')" disabled></li>
-　  </div>
-  </form>
-  </div>
-<div class="game_status">
-<div id="game_number"><font size='6'>1</font>試合目</div><div id="your_KOs">0勝0敗</div>
-</div>
-<div id="fix_area"><input type="button" value="Restart" class="select_btn" onclick="reset_game()"></div>
-<div id="action_history" style="height:150px;overflow:auto;"></div>
-<div id="fix_area"><input type="button" value="！Reset！" class="reset_btn" onclick="reset_all()"></div>
-</div>
-<script type="text/javascript" src="beam_game.js"></script>
-</body>
+    <script type="text/javascript" src="beam_game.js"></script>
+  </body>
 </html>
